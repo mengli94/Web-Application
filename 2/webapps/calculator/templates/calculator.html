@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>          
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../static/standrad.css">
+</head>
+
+<body>
+	<form method="post">
+		<div class="calculator">
+			<input class="box" name="display_value" value={{display_value}} readonly = "readonly">
+			<input type="hidden" name="curr_digit" value={{curr_digit}}>
+			<input type="hidden" name="last_digit" value={{last_digit}}>
+			<input type="hidden" name="last_op" value={{last_op}}>
+			<p></p>
+			<div class="buttons">
+			    <button type="submit" name="digit" value="7">7</button>
+				<button type="submit" name="digit" value="8">8</button>
+				<button type="submit" name="digit" value="9">9</button>
+				<button class="operator" type="submit" name="operator" value="+">&plus;</button>
+				<p></p>
+				<button type="submit" name="digit" value="4">4</button>
+				<button type="submit" name="digit" value="5">5</button>
+				<button type="submit" name="digit" value="6">6</button>
+				<button class="operator" type="submit" name="operator" value="-">&minus;</button>
+				<p></p>
+				<button type="submit" name="digit" value="1">1</button>
+				<button type="submit" name="digit" value="2">2</button>
+				<button type="submit" name="digit" value="3">3</button>
+				<button class="operator" type="submit" name="operator" value="*">&times;</button>
+				<p></p>
+				&emsp;&emsp;&emsp;&ensp;&thinsp;
+				<button type="submit" name="digit" value="0">0</button>
+				<button class="operator" type="submit" name="operator" value="/">&divide;</button>
+				<button class="operator" type="submit" name="operator" value="=">&equals;</button>
+			</div>
+		</div>
+		{% csrf_token %}
+	</form>
+</body>
