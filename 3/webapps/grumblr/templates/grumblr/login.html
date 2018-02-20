@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>Signin Page</title>
+            <link rel="stylesheet" href="{% static 'grumblr/bootstrap/css/bootstrap.min.css' %}">
+            <!-- Custom styles for this template -->
+            <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+            <link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+            <link rel="stylesheet" type="text/css" href="{% static 'grumblr/css/base1.css' %}">
+    </head>
+    <body>
+    <h4>Log in to Grumblr</h4>
+    <div class="alert alert-primary" role="alert" >
+    </div>
+        <form class="form-signin" method = "post" action="{% url 'login' %}">
+            <p>User Name</p>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon"></span>
+                <input id="userName" type="text" name="username" class="form-control" 
+                aria-describedby="basic-addon" required autofocus>
+            </div>
+            <p>Password</p>
+            <div class="input-group" id="basic-addon1">
+                <span class="input-group-addon"></span>
+                <input id="password" type="password" name="password" class="form-control" aria-describedby="basic-addon1">
+            </div>
+            <p></p>
+            <div class="checkbox">
+                    <p class="text-left">
+                    <input type="checkbox" value="remember-me">  Remember me
+            </div>
+            {% if form.errors %}
+            <p style="color:red">
+                Incorrect user name and password.
+            </p>
+            {% endif %}
+            <p class="text-center">
+            <input value="Sign in" class="btn btn-lg btn-primary" type="submit"></p>
+            <p class="right">Don't have an account?
+            <a class="normal" href="{% url 'register' %}">SIGN UP NOW!</a></p>
+            {% csrf_token %}
+        </form>
+        <div class="alert alert-primary" role="alert" >
+        </div>
+        <h2>Grumblr</h2>
+        <script src="{% static 'grumblr/bootstrap/js/ie10-viewport-bug-workaround.js' %}"></script>
+    </body>
+</html>

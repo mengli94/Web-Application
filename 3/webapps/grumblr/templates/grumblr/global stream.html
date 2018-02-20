@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Global Stream for Grumblr</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'grumblr/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'grumblr/bootstrap/blog/blog.css' %}" rel="stylesheet">
+    <!-- Custom styles for Bootstrap template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'grumblr/css/base2.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+   </head>
+
+  <body>
+      <div class="container" id = "bar">
+        <nav class="nav">
+          <a href="{% url 'home' %}" class="nav-link active">Global Stream</a>
+          <a class="nav-link" href="{% url 'profile' request.user.username %}">My Profile</a>
+          <p class = "padding">Children circle around an ultraviolet lamp to get a dose of </p>
+          <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </nav>
+      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+            <h1 class="blog-title">Moments</h1>
+            <p class="lead blog-description">What’s happening?</p>
+            <div class="blog-post">
+              <hr>
+              <p class="blog-post-meta"> Share an update!</p>
+              <form class="form-profile" action="{% url 'add_post' %}" method="post">
+                <textarea class="form-control" name="post" placeholder="Please input less than 42 characters" maxlength="42"></textarea>
+                <p>
+                  <p class="text-right">
+                    <button class="btn btn-me btn-primary" type="submit">Post</button></p>
+                    {% csrf_token %}
+              </form>
+              <hr>
+            </div><!-- /.blog-post -->
+          <div class="blog-post">
+                <p class="blog-post-meta">
+                {% for post in posts %}
+                <hr>
+                <img src="{% static 'grumblr/images/1.jpg' %}" alt="image" width="32" height="32">
+                <span class="time">{{post.time}}</span>
+                <span><a href="{% url 'profile' post.user.username %}">{{post.user.first_name}} {{post.user.last_name}}</a></span>
+                <p>{{post.text}}</p>
+                <hr>
+                {% endfor %}
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 offset-sm-3 blog-sidebar">
+            <p>
+            <p class="text-center">
+            <a href="{% url 'logout' %}" class="btn btn-lg btn-outline-primary" role="button">Log out</a></p>
+          <p class ="title">Grumblr</p>
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>About</h4>
+            <p>Grumblr is a blog!</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+                <li><a href="https://github.com/">GitHub</a></li>
+                <li><a href="https://twitter.com/">Twitter</a></li>
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div><!-- /.row -->
+      <div class="mx-auto">
+      <p class = "padding2"> Children circle around 
+            <a class = "back" href="{% url 'home' %}">Back to top</a></p>
+      </div>
+      <div class="alert alert-primary" role="alert" >
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'grumblr/bootstrap/js/vendor/jquery.min.js' %}"><\/script>')</script>
+    <script src="{% static 'grumblr/bootstrap/js/vendor/popper.min.js' %}"></script>
+    <script src="{% static 'grumblr/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'grumblr/bootstrap/js/ie10-viewport-bug-workaround.js' %}"></script>
+  </body>
+</html>

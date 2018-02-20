@@ -1,0 +1,45 @@
+h1, h4 {
+	font-family: 'Alegreya SC';
+}
+#bar {
+	background-color:#2196f3;
+}
+.mx-auto {
+	width: 500px;
+}
+.title {
+	font-family:Aladin;
+	color:black;
+	font-size:72px;
+	text-align:center;
+}
+.blog-title {
+	font-family: 'Alegreya SC';
+}
+.normal {
+	font-family: 'Alegreya SC';
+	color:black;
+	font-size:16px;
+	text-align:left;
+}
+.padding {
+	color:#2196f3;
+}
+.padding2 {
+	color:white;
+}
+.alert {
+	background-color:#2196f3;
+}
+.btn-primary {
+	background-color:#2196f3;
+	font-family:'Alegreya SC'; 
+}
+.btn-outline-primary {
+	font-family:'Alegreya SC';
+}
+.back {
+	text-align:center;
+	color: black;
+	font-family:'Alegreya SC';
+}
