@@ -1,0 +1,4 @@
+Qiunan Liu: align up buttons in profile page. The third sort dates in most recently order;
+do not has dates and time in profile page; username should be user name.
+
+Liang Yu: What cute pages！The overall style is friendly and pretty, only some minor issues to improve. 1. add date info in profile page. 2. save some room for image posts in moments and profile pages.
